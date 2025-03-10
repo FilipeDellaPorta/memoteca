@@ -1,17 +1,24 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { CabecalhoComponent } from "./components/cabecalho/cabecalho.component";
-import { RodapeComponent } from "./components/rodape/rodape.component";
-import { CriarPensamentosComponent } from "./components/pensamentos/criar-pensamentos/criar-pensamentos.component";
-import { ListarPensamentosComponent } from "./components/pensamentos/listar-pensamentos/listar-pensamentos.component";
+import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
+import { RodapeComponent } from './components/rodape/rodape.component';
+import { CriarPensamentosComponent } from './components/pensamentos/criar-pensamentos/criar-pensamentos.component';
+import { ListarPensamentosComponent } from './components/pensamentos/listar-pensamentos/listar-pensamentos.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, CabecalhoComponent, RodapeComponent, CriarPensamentosComponent, ListarPensamentosComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    CabecalhoComponent,
+    RodapeComponent,
+    CriarPensamentosComponent,
+    ListarPensamentosComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'memoteca';
