@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PensamentoCardComponent } from '../pensamento-card/pensamento-card.component';
 import { CommonModule } from '@angular/common';
-import { Pensamento } from '../Pensamento.js';
+import { Pensamento } from '../Pensamento';
 import { PensamentoService } from '../pensamento.service';
 
 @Component({
@@ -15,7 +15,13 @@ import { PensamentoService } from '../pensamento.service';
 export class ListarPensamentosComponent implements OnInit {
   listaPensamentos: Pensamento[] = [];
 
-  constructor(private service: PensamentoService) {}
+  constructor(public service: PensamentoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service
+      .listarPensamentos()
+      .subscribe((listaDePensamentos: Pensamento[]) => {
+        this.listaPensamentos = listaDePensamentos;
+      });
+  }
 }

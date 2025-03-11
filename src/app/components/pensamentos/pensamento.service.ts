@@ -1,15 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pensamento } from './Pensamento';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PensamentoService {
-  private readonly api = 'http://localhost:3000/pensamentos';
+  public api = 'http://localhost:3000/pensamentos';
   constructor(private http: HttpClient) {}
 
-  listar() {
+  listarPensamentos(): Observable<Pensamento[]> {
+    console.log('Chamando o serviço para listar pensamentos...');
+
     return this.http.get<Pensamento[]>(this.api);
   }
 }
