@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { Pensamento } from '../Pensamento.js';
 
 @Component({
   selector: 'app-criar-pensamentos',
@@ -10,8 +11,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './criar-pensamentos.component.css',
 })
 export class CriarPensamentosComponent {
-  pensamento = {
-    id: '1',
+  pensamento: Pensamento = {
+    id: 1,
     conteudo: 'Aprendendo Angular',
     autoria: 'Dev',
     modelo: 'modelo1',
