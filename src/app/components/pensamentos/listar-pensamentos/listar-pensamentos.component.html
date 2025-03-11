@@ -7,7 +7,7 @@
   </header>
   <div class="mural">
     <div *ngFor="let pensamento of listaPensamentos">
-      <app-pensamento-card></app-pensamento-card>
+      <app-pensamento-card [pensamento]="pensamento"></app-pensamento-card>
     </div>
   </div>
 </section>
