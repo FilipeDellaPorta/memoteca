@@ -1,0 +1,22 @@
+{
+  "pensamentos": [
+    {
+      "id": 1,
+      "conteudo": "Backend",
+      "autoria": "Filipe",
+      "modelo": "modelo2"
+    },
+    {
+      "id": 2,
+      "conteudo": "Gitignore",
+      "autoria": "Della",
+      "modelo": "modelo3"
+    },
+    {
+      "id": 3,
+      "conteudo": "Json-server",
+      "autoria": "Porta",
+      "modelo": "modelo1"
+    }
+  ]
+}
