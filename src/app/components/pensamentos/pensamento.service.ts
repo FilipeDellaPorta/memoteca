@@ -10,9 +10,13 @@ export class PensamentoService {
   public api = 'http://localhost:3000/pensamentos';
   constructor(private http: HttpClient) {}
 
-  listarPensamentos(): Observable<Pensamento[]> {
+  listar(): Observable<Pensamento[]> {
     console.log('Chamando o serviço para listar pensamentos...');
 
     return this.http.get<Pensamento[]>(this.api);
+  }
+
+  criar(pensamento: Pensamento): Observable<Pensamento> {
+    return this.http.post<Pensamento>(this.api, pensamento);
   }
 }

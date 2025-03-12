@@ -19,7 +19,7 @@ export class ListarPensamentosComponent implements OnInit {
 
   ngOnInit(): void {
     this.service
-      .listarPensamentos()
+      .listar()
       .subscribe((listaDePensamentos: Pensamento[]) => {
         this.listaPensamentos = listaDePensamentos;
       });
