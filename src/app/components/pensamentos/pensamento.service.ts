@@ -12,7 +12,6 @@ export class PensamentoService {
 
   listar(): Observable<Pensamento[]> {
     console.log('Chamando o serviço para listar pensamentos...');
-
     return this.http.get<Pensamento[]>(this.api);
   }
 
