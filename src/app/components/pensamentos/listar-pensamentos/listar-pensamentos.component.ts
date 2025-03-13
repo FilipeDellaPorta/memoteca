@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Pensamento } from '../Pensamento';
 import { PensamentoService } from '../pensamento.service';
-import { PensamentoComponent } from "../pensamento/pensamento.component";
+import { PensamentoComponent } from '../pensamento/pensamento.component';
 
 @Component({
   selector: 'app-listar-pensamentos',
@@ -14,12 +14,15 @@ import { PensamentoComponent } from "../pensamento/pensamento.component";
 })
 export class ListarPensamentosComponent implements OnInit {
   listaPensamentos: Pensamento[] = [];
+  paginaAtual: number = 1;
 
   constructor(private service: PensamentoService) {}
 
   ngOnInit(): void {
-    this.service.listar().subscribe((listaDePensamentos: Pensamento[]) => {
-      this.listaPensamentos = listaDePensamentos;
-    });
+    this.service
+      .listar(this.paginaAtual)
+      .subscribe((listaDePensamentos: Pensamento[]) => {
+        this.listaPensamentos = listaDePensamentos;
+      });
   }
 }

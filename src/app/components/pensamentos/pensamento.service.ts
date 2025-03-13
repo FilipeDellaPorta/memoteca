@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pensamento } from './Pensamento';
 import { Observable } from 'rxjs';
@@ -10,9 +10,13 @@ export class PensamentoService {
   public api = 'http://localhost:3000/pensamentos';
   constructor(private http: HttpClient) {}
 
-  listar(): Observable<Pensamento[]> {
+  listar(pagina: number): Observable<Pensamento[]> {
+    const itensPorPagina = 6;
+    let params = new HttpParams()
+      .set('_page', pagina)
+      .set('_limit', itensPorPagina);
     console.log('Chamando o serviço para listar pensamentos...');
-    return this.http.get<Pensamento[]>(this.api);
+    return this.http.get<Pensamento[]>(this.api, { params: params });
   }
 
   criar(pensamento: Pensamento): Observable<Pensamento> {
