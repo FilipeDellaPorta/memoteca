@@ -10,13 +10,21 @@ export class PensamentoService {
   public api = 'http://localhost:3000/pensamentos';
   constructor(private http: HttpClient) {}
 
+  // #sem usar o HttpParams
+  // listar(pagina: number): Observable<Pensamento[]> {
+  //   console.log('Chamando o serviço para listar pensamentos...');
+  //   return this.http.get<Pensamento[]>(
+  //     `${this.api}?_page=${pagina}&_limit=${6}`
+  //   );
+  // }
+
   listar(pagina: number): Observable<Pensamento[]> {
+    console.log('Chamando o serviço para listar pensamentos...');
     const itensPorPagina = 6;
     let params = new HttpParams()
       .set('_page', pagina)
       .set('_limit', itensPorPagina);
-    console.log('Chamando o serviço para listar pensamentos...');
-    return this.http.get<Pensamento[]>(this.api, { params: params });
+    return this.http.get<Pensamento[]>(this.api, { params });
   }
 
   criar(pensamento: Pensamento): Observable<Pensamento> {
