@@ -31,18 +31,30 @@ export class ListarPensamentosComponent implements OnInit {
 
   ngOnInit(): void {
     this.service
-      .listar(this.paginaAtual)
+      .listar(this.paginaAtual, this.filtro)
       .subscribe((listaDePensamentos: Pensamento[]) => {
         this.listaPensamentos = listaDePensamentos;
       });
   }
 
   carregarMaisPensamentos() {
-    this.service.listar(++this.paginaAtual).subscribe((listaPensamentos) => {
-      this.listaPensamentos.push(...listaPensamentos);
-      if (!listaPensamentos.length) {
-        this.maisPensamentos = false;
-      }
-    });
+    this.service
+      .listar(++this.paginaAtual, this.filtro)
+      .subscribe((listaPensamentos) => {
+        this.listaPensamentos.push(...listaPensamentos);
+        if (!listaPensamentos.length) {
+          this.maisPensamentos = false;
+        }
+      });
+  }
+
+  pesquisarPensamentos() {
+    this.maisPensamentos = true;
+    this.paginaAtual = 1;
+    this.service
+      .listar(this.paginaAtual, this.filtro)
+      .subscribe((listaPensamentos) => {
+        this.listaPensamentos = listaPensamentos;
+      });
   }
 }
