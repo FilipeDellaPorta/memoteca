@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { PensamentoCardComponent } from '../pensamento-card/pensamento-card.component';
 import { CommonModule } from '@angular/common';
 import { Pensamento } from '../Pensamento';
 import { PensamentoService } from '../pensamento.service';
+import { PensamentoComponent } from "../pensamento/pensamento.component";
 
 @Component({
   selector: 'app-listar-pensamentos',
   standalone: true,
-  imports: [RouterLink, PensamentoCardComponent, CommonModule],
+  imports: [RouterLink, CommonModule, PensamentoComponent],
   templateUrl: './listar-pensamentos.component.html',
   styleUrl: './listar-pensamentos.component.css',
 })

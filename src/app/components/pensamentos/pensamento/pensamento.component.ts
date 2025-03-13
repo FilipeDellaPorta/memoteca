@@ -4,13 +4,13 @@ import { Pensamento } from '../Pensamento.js';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-pensamento-card',
+  selector: 'app-pensamento',
   standalone: true,
   imports: [NgClass, RouterModule],
-  templateUrl: './pensamento-card.component.html',
-  styleUrl: './pensamento-card.component.css',
+  templateUrl: './pensamento.component.html',
+  styleUrl: './pensamento.component.css',
 })
-export class PensamentoCardComponent {
+export class PensamentoComponent {
   @Input() pensamento: Pensamento = {
     id: '0',
     conteudo: 'I love Angular',
