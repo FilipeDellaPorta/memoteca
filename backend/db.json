@@ -12,7 +12,7 @@
       "conteudo": "Vc faz TI? Conserta meu celular!",
       "autoria": "Grupo da família",
       "modelo": "modelo1",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 5,
@@ -82,7 +82,7 @@
       "conteudo": "Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Diuretics paradis num copo é motivis de denguis. Atirei o pau no gatis, per gatis num morreus. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Sapien in monti palavris qui num significa nadis i pareci latim.",
       "autoria": "Mussum",
       "modelo": "modelo3",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 19,
@@ -103,7 +103,7 @@
       "conteudo": "Resolver o bug não consegue? Esfriar a cabeça vc deve.",
       "autoria": "Mestre Yoda",
       "modelo": "modelo1",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 22,
@@ -131,7 +131,7 @@
       "conteudo": "Por que meu código funcionou?",
       "autoria": "Dev ",
       "modelo": "modelo1",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 26,
