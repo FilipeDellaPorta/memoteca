@@ -5,6 +5,7 @@ import { Pensamento } from '../Pensamento';
 import { PensamentoService } from '../pensamento.service';
 import { PensamentoComponent } from '../pensamento/pensamento.component';
 import { BotaoCarregarMaisComponent } from './botao-carregar-mais/botao-carregar-mais.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-listar-pensamentos',
@@ -14,6 +15,8 @@ import { BotaoCarregarMaisComponent } from './botao-carregar-mais/botao-carregar
     CommonModule,
     PensamentoComponent,
     BotaoCarregarMaisComponent,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './listar-pensamentos.component.html',
   styleUrl: './listar-pensamentos.component.css',
@@ -22,6 +25,7 @@ export class ListarPensamentosComponent implements OnInit {
   listaPensamentos: Pensamento[] = [];
   paginaAtual: number = 1;
   maisPensamentos: boolean = true;
+  filtro: string = '';
 
   constructor(private service: PensamentoService) {}
 
