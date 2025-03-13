@@ -1,44 +1,66 @@
 import { Component, OnInit } from '@angular/core';
-import { Pensamento } from '../Pensamento';
 import { PensamentoService } from '../pensamento.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-editar-pensamento',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './editar-pensamento.component.html',
   styleUrl: './editar-pensamento.component.css',
 })
 export class EditarPensamentoComponent implements OnInit {
-  pensamento: Pensamento = {
-    id: '',
-    conteudo: '',
-    autoria: '',
-    modelo: '',
-  };
+  formulario!: FormGroup;
 
   constructor(
     private service: PensamentoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.service.buscarPorId(id!).subscribe((pensamento) => {
-      this.pensamento = pensamento;
+      this.formulario = this.formBuilder.group({
+        id: [pensamento.id],
+        conteudo: [
+          pensamento.conteudo,
+          Validators.compose([
+            Validators.required,
+            Validators.pattern(/(.|\s)*\S(.|\s)*/),
+          ]),
+        ],
+        autoria: [
+          pensamento.autoria,
+          Validators.compose([Validators.required, Validators.minLength(2)]),
+        ],
+        modelo: [pensamento.modelo],
+      });
     });
   }
 
   editarPensamento() {
-    this.service.editar(this.pensamento).subscribe(() => {
+    this.service.editar(this.formulario.value).subscribe(() => {
       this.router.navigate(['/listarPensamento']);
     });
   }
 
   cancelar() {
     this.router.navigate(['/listarPensamento']);
+  }
+
+  habilitarBotao(): string {
+    if (this.formulario.valid) {
+      return 'botao';
+    } else return 'botao__desabilitado';
   }
 }
