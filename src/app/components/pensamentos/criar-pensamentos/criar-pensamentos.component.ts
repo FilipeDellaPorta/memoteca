@@ -8,11 +8,12 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PensamentoService } from '../pensamento.service.js';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-criar-pensamentos',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './criar-pensamentos.component.html',
   styleUrl: './criar-pensamentos.component.css',
 })
@@ -36,14 +37,14 @@ export class CriarPensamentosComponent implements OnInit {
       ],
       autoria: [
         '',
-        Validators.compose([Validators.required, Validators.minLength(3)]),
+        Validators.compose([Validators.required, Validators.minLength(2)]),
       ],
       modelo: ['modelo1'],
     });
   }
 
   criarPensamento() {
-    console.log(this.formulario);
+    console.log(this.formulario.get('autoria')?.errors);
     if (this.formulario.valid) {
       this.service.criar(this.formulario.value).subscribe(() => {
         this.router.navigate(['/listarPensamento']);
