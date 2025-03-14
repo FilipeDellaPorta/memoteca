@@ -47,7 +47,7 @@
       "conteudo": "Melhor professor, o fracasso é!",
       "autoria": "Mestre Yoda",
       "modelo": "modelo2",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 14,
@@ -89,7 +89,7 @@
       "conteudo": "Por que a pessoa dev não morre afogada? Porque ela usa ponto flutuante.",
       "autoria": "Grupo da família",
       "modelo": "modelo1",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 20,
@@ -117,7 +117,7 @@
       "conteudo": "Conserta minha impressora?",
       "autoria": "Grupo da família",
       "modelo": "modelo3",
-      "favorito": false
+      "favorito": true
     },
     {
       "id": 24,
